@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h2 {
+    color: #1DB954;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+nav ul, .playlists ul {
+    list-style: none;
+}
+
+nav ul li, .playlists ul li {
+    margin-bottom: 15px;
+}
+
+nav ul li a, .playlists ul li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, .playlists ul li a:hover, nav ul li a.active {
+    color: #ffffff;
+}
+
+.playlists h3 {
+    color: #ffffff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Main Content */
+.main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.recently-played h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #181818;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.card:hover {
+    background-color: #282828;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.card p {
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
+/* Player */
+.player {
+    position: fixed;
+    bottom: 0;
+    left: 250px;
+    right: 0;
+    background-color: #181818;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #282828;
+}
+
+.now-playing {
+    display: flex;
+    align-items: center;
+}
+
+.now-playing img {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+.song-info h4 {
+    font-size: 14px;
+}
+
+.song-info p {
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.control-btn:hover {
+    color: #1DB954;
+}
+
+.play {
+    font-size: 24px;
+}
+
+.progress {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: #535353;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.volume {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.volume input {
+    width: 100px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        z-index: 100;
+        transition: left 0.3s;
+    }
+    .sidebar.open {
+        left: 0;
+    }
+    .main {
+        margin-left: 0;
+    }
+    .player {
+        left: 0;
+    }
+}
